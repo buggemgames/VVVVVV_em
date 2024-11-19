@@ -40,6 +40,7 @@ jobs:
     - name: CMake configure (default version)
       run: |
         mkdir ${SRC_DIR_PATH}/build && cd ${SRC_DIR_PATH}/build
+        cp ../icon.ico ./
         emcmake cmake -G Ninja ..
     - name: Build (default version)
       run: ninja -C ${SRC_DIR_PATH}/build
