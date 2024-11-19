@@ -220,18 +220,7 @@ int FILESYSTEM_init(char *argvZero, char* baseDir, char *assetsPath, char* langD
     {
         return 0;
     }
-#ifdef __EMSCRIPTEN__
-    EM_ASM(
-        FS.mkdir('/home/web_user/.local/share/VVVVVV/');
-        // Mount save with IDBFS type
-        FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/');
 
-        // Then sync
-        FS.syncfs(true, function (err) {
-            // Error
-        });
-    );
-#endif
     /* Mount our base user directory */
     SDL_strlcpy(writeDir, output, sizeof(writeDir));
     if (!PHYSFS_mount(writeDir, NULL, 0))
@@ -262,7 +251,19 @@ int FILESYSTEM_init(char *argvZero, char* baseDir, char *assetsPath, char* langD
         "saves",
         pathSep
     );
-    mkdir(saveDir, 0777);
+#ifdef __EMSCRIPTEN__
+    EM_ASM(
+        FS.mkdir('/home/web_user/.local/share/VVVVVV/saves');
+        FS.chmod('/home/web_user/.local/share/VVVVVV/saves', 0777);
+        // Mount save with IDBFS type
+        FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/saves');
+
+        // Then sync
+        FS.syncfs(true, function (err) {
+            // Error
+        });
+    );
+#endif
     vlog_info("Save directory: %s", saveDir);
 
     /* Store full level directory */
