@@ -241,6 +241,19 @@ int FILESYSTEM_init(char *argvZero, char* baseDir, char *assetsPath, char* langD
         );
         return 0;
     }
+#ifdef __EMSCRIPTEN__
+    EM_ASM(
+        // Make a directory other than '/'
+        FS.mkdir('/home/web_user/.local/share/VVVVVV/');
+        // Then mount with IDBFS type
+        FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/');
+
+        // Then sync
+        FS.syncfs(true, function (err) {
+            // Error
+        });
+    );
+#endif
     vlog_info("Base directory: %s", writeDir);
 
     /* Store full save directory */
@@ -851,7 +864,20 @@ bool FILESYSTEM_saveFile(const char* name, const unsigned char* data, const size
     {
         vlog_error("%s: Could not close handle", name);
     }
-
+#ifdef __EMSCRIPTEN__
+    
+    EM_ASM(FS.syncfs(false, function(err)
+    {
+        if (err)
+        {
+            console.warn("Error saving:", err);
+            alert("Error saving. Check console for more information.");
+        }
+    }));
+    
+#else
+    UNUSED(sync);
+#endif
     return true;
 }
 
@@ -1092,17 +1118,16 @@ bool FILESYSTEM_saveTiXml2Document(const char *name, tinyxml2::XMLDocument& doc,
     PHYSFS_close(handle);
 
 #ifdef __EMSCRIPTEN__
-    if (sync)
+    
+    EM_ASM(FS.syncfs(false, function(err)
     {
-        EM_ASM(FS.syncfs(false, function(err)
+        if (err)
         {
-            if (err)
-            {
-                console.warn("Error saving:", err);
-                alert("Error saving. Check console for more information.");
-            }
-        }));
-    }
+            console.warn("Error saving:", err);
+            alert("Error saving. Check console for more information.");
+        }
+    }));
+    
 #else
     UNUSED(sync);
 #endif
