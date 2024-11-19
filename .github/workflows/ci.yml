@@ -50,6 +50,7 @@ jobs:
         name: artifact-vvvvvv
         path: |
           ./desktop_version/build/*
+          !./desktop_version/build/*.data
           !./desktop_version/build/*.o
   download:
     needs: build-em
