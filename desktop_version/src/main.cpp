@@ -597,19 +597,7 @@ int main(int argc, char *argv[])
         keep_console_open(open_console);
         VVV_exit(0);
     }
-#ifdef __EMSCRIPTEN__
-    EM_ASM(
-        // Mkdir before FileSystem init works like a charm
-        FS.mkdir('/home/web_user/.local/share/VVVVVV/');
-        // Mount save with IDBFS type
-        FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/');
 
-        // Then sync
-        FS.syncfs(true, function (err) {
-            // Error
-        });
-    );
-#endif
     SDL_SetHintWithPriority(SDL_HINT_IME_SHOW_UI, "1", SDL_HINT_OVERRIDE);
     SDL_SetHintWithPriority(SDL_HINT_IME_SUPPORT_EXTENDED_TEXT, "1", SDL_HINT_OVERRIDE);
 
