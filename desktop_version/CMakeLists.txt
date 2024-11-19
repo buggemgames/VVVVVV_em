@@ -500,5 +500,5 @@ if(HAIKU)
 endif()
 if(EMSCRIPTEN)
     # 256MB is enough for everybody
-    target_link_libraries(VVVVVV -sFORCE_FILESYSTEM=1 -sTOTAL_MEMORY=256MB)
+    target_link_libraries(VVVVVV.html -sFORCE_FILESYSTEM=1 -sTOTAL_MEMORY=1024MB)
 endif()
