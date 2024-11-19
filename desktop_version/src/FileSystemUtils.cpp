@@ -241,11 +241,11 @@ int FILESYSTEM_init(char *argvZero, char* baseDir, char *assetsPath, char* langD
         );
         return 0;
     }
+
+    vlog_info("Base directory: %s", writeDir);
 #ifdef __EMSCRIPTEN__
     EM_ASM(
-        // Make a directory other than '/'
-        FS.mkdir('/home/web_user/.local/share/VVVVVV/');
-        // Then mount with IDBFS type
+        // Mount save with IDBFS type
         FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/');
 
         // Then sync
@@ -254,7 +254,6 @@ int FILESYSTEM_init(char *argvZero, char* baseDir, char *assetsPath, char* langD
         });
     );
 #endif
-    vlog_info("Base directory: %s", writeDir);
 
     /* Store full save directory */
     SDL_snprintf(saveDir, sizeof(saveDir), "%s%s%s",
