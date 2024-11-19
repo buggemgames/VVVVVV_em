@@ -63,8 +63,8 @@ jobs:
     - name: Build (M&P)
       run: ninja -C ${SRC_DIR_PATH}/build
 
-  build-lin:
-    name: Build (Steam Linux Runtime Sniper)
+  build-em:
+    name: Build (Steam Linux Runtime Sniper w Emscripten)
 
     runs-on: ubuntu-latest
     container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk:beta
@@ -74,27 +74,53 @@ jobs:
       with:
         submodules: true
 
+    - name: Setup Emscripten toolchain
+      uses: mymindstorm/setup-emsdk@v14
     - name: CMake configure (default version)
       run: |
         mkdir ${SRC_DIR_PATH}/build && cd ${SRC_DIR_PATH}/build
-        cmake -G Ninja ..
+        emcmake cmake -G Ninja ..
     - name: Build (default version)
       run: ninja -C ${SRC_DIR_PATH}/build
 
-    - name: CMake configure (official)
+    - name: Upload engine (artifacts)
+      uses: actions/upload-artifact@v4
+      with:
+        name: artifact-vvvvvv
+        path: |
+          ${SRC_DIR_PATH}/build
+  download:
+    needs: build-em
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        ref: ghpages
+    - name: Setup Node & NPM
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+    - name: Download Artifact
+      uses: actions/download-artifact@v4
+      with:
+        path: ./
+        pattern: artifact-*
+        merge-multiple: true
+    - name: Uglify JS for faster runtime (probably)
       run: |
-        cd ${SRC_DIR_PATH}/build
-        cmake -G Ninja -DOFFICIAL_BUILD=ON ..
-    - name: Build (official)
-      run: ninja -C ${SRC_DIR_PATH}/build
-
-    - name: CMake configure (M&P)
+          npm install uglify-js -g
+          uglifyjs sdl_doom.js -c > sdl_doom.js.min
+          rm sdl_doom.js
+          mv sdl_doom.js.min sdl_doom.js
+    - name: Push to GH Pages
       run: |
-        cd ${SRC_DIR_PATH}/build
-        cmake -G Ninja -DOFFICIAL_BUILD=OFF -DMAKEANDPLAY=ON ..
-    - name: Build (M&P)
-      run: ninja -C ${SRC_DIR_PATH}/build
-
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Update GH Pages as per master branch"
+          git push
+      
   build-win:
     name: Build (windows-latest)
 
