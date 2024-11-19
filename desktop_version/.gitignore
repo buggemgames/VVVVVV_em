@@ -12,8 +12,6 @@ VVVVVV
 src/Version.h.out
 src/InterimVersion.out.c
 
-# Game data
-data.zip
 
 # macOS files
 .DS_Store

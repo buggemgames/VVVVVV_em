@@ -40,7 +40,9 @@ jobs:
     - name: CMake configure (default version)
       run: |
         mkdir ${SRC_DIR_PATH}/build && cd ${SRC_DIR_PATH}/build
-        cp ../icon.ico ./
+        cp -r ../fonts ./data/fonts
+        cp -r ../lang ./data/lang
+        cp ../data.zip ./data/data.zip
         emcmake cmake -G Ninja ..
     - name: Build (default version)
       run: ninja -C ${SRC_DIR_PATH}/build
@@ -51,7 +53,6 @@ jobs:
         name: artifact-vvvvvv
         path: |
           ./desktop_version/build/*
-          !./desktop_version/build/*.data
           !./desktop_version/build/*.o
   download:
     needs: build-em
