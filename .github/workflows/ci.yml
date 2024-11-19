@@ -49,7 +49,7 @@ jobs:
       with:
         name: artifact-vvvvvv
         path: |
-          ${SRC_DIR_PATH}/build
+          ./build
   download:
     needs: build-em
     runs-on: ubuntu-latest
