@@ -501,5 +501,5 @@ endif()
 if(EMSCRIPTEN)
     # 256MB is enough for everybody
     set(CMAKE_EXECUTABLE_SUFFIX ".html")
-    target_link_libraries(VVVVVV -sFORCE_FILESYSTEM=1 --preload-file=data/*@/ -sTOTAL_MEMORY=1024MB)
+    target_link_libraries(VVVVVV -sFORCE_FILESYSTEM=1 --preload-file=data@/ -sTOTAL_MEMORY=1024MB)
 endif()
