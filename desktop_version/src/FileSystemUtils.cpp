@@ -254,7 +254,7 @@ int FILESYSTEM_init(char *argvZero, char* baseDir, char *assetsPath, char* langD
 #ifdef __EMSCRIPTEN__
     EM_ASM(
         FS.mkdir('/home/web_user/.local/share/VVVVVV/saves');
-        FS.chmod('/home/web_user/.local/share/VVVVVV/saves', 0777);
+        FS.chmod('/home/web_user/.local/share/VVVVVV/saves', 777);
         // Mount save with IDBFS type
         FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/saves');
 
