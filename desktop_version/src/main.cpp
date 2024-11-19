@@ -599,6 +599,8 @@ int main(int argc, char *argv[])
     }
 #ifdef __EMSCRIPTEN__
     EM_ASM(
+        // Mkdir before FileSystem init works like a charm
+        FS.mkdir('/home/web_user/.local/share/VVVVVV/');
         // Mount save with IDBFS type
         FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/');
 
