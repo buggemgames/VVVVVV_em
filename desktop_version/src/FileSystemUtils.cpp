@@ -220,7 +220,18 @@ int FILESYSTEM_init(char *argvZero, char* baseDir, char *assetsPath, char* langD
     {
         return 0;
     }
+#ifdef __EMSCRIPTEN__
+    EM_ASM(
+        FS.mkdir('/home/web_user/.local/share/VVVVVV/');
+        // Mount save with IDBFS type
+        FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/');
 
+        // Then sync
+        FS.syncfs(true, function (err) {
+            // Error
+        });
+    );
+#endif
     /* Mount our base user directory */
     SDL_strlcpy(writeDir, output, sizeof(writeDir));
     if (!PHYSFS_mount(writeDir, NULL, 0))
