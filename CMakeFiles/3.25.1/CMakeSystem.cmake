@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "6.5.0-1025-azure")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
-include("/__w/_temp/75c66754-74df-44ce-b9ad-bd9e77fa0d93/emsdk-main/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake")
+include("/__w/_temp/dcf7b22a-caa2-4d3f-bdb1-968cd96d1234/emsdk-main/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake")
 
 set(CMAKE_SYSTEM "Emscripten-1")
 set(CMAKE_SYSTEM_NAME "Emscripten")
