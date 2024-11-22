@@ -73,12 +73,6 @@ jobs:
         path: ./
         pattern: artifact-*
         merge-multiple: true
-    - name: Uglify JS for faster runtime (probably)
-      run: |
-          npm install uglify-js -g
-          uglifyjs VVVVVV.js -c > VVVVVV.js.min
-          rm VVVVVV.js
-          mv VVVVVV.js.min VVVVVV.js
     - name: Push to GH Pages
       run: |
           git config user.name "github-actions[bot]"
