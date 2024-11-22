@@ -4289,10 +4289,7 @@ var ASM_CONSTS = {
         abort('FS.standardizePath has been removed; use PATH.normalize instead');
       },
   };
-  FS.mkdir('/home/web_user/.local/share/VVVVVV/saves');
-  FS.chmod('/home/web_user/.local/share/VVVVVV/saves', 777);
-  FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/saves');
-  FS.syncfs(true, function (err) { });
+  
   var SYSCALLS = {
   DEFAULT_POLLMASK:5,
   calculateAt(dirfd, path, allowEmpty) {
@@ -10712,7 +10709,12 @@ function callMain(args = []) {
   assert(__ATPRERUN__.length == 0, 'cannot call main when preRun functions remain to be called');
 
   var entryFunction = _main;
-
+  
+  FS.mkdir('/home/web_user/.local/share/VVVVVV/saves');
+  FS.chmod('/home/web_user/.local/share/VVVVVV/saves', 777);
+  FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/saves');
+  FS.syncfs(true, (err)=>{ });
+  
   args.unshift(thisProgram);
 
   var argc = args.length;
