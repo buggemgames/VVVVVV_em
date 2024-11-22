@@ -382,6 +382,19 @@ static void keep_console_open(const bool open_console)
 
 int main(int argc, char *argv[])
 {
+#ifdef __EMSCRIPTEN__
+    EM_ASM(
+        FS.mkdir('/osdir');
+        FS.chmod('/osdir', 0777);
+        // Mount save with IDBFS type
+        FS.mount(IDBFS, {}, '/osdir');
+
+        // Then sync
+        FS.syncfs(true, function (err) {
+            // Error
+        });
+    );
+#endif
     char* baseDir = NULL;
     char* assetsPath = NULL;
     char* langDir = NULL;
