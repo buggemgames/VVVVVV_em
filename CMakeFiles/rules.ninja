@@ -17,7 +17,7 @@
 rule C_COMPILER__VVVVVV_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building C object $out
 
 
@@ -27,7 +27,7 @@ rule C_COMPILER__VVVVVV_
 rule CXX_COMPILER__VVVVVV_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/em++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/em++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building CXX object $out
 
 
@@ -35,7 +35,7 @@ rule CXX_COMPILER__VVVVVV_
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__VVVVVV_
-  command = $PRE_LINK && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/em++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
+  command = $PRE_LINK && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/em++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -46,7 +46,7 @@ rule CXX_EXECUTABLE_LINKER__VVVVVV_
 rule C_COMPILER__InterimVersion_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building C object $out
 
 
@@ -54,7 +54,7 @@ rule C_COMPILER__InterimVersion_
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__InterimVersion_
-  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
 
@@ -65,7 +65,7 @@ rule C_STATIC_LIBRARY_LINKER__InterimVersion_
 rule C_COMPILER__lodepng-static_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building C object $out
 
 
@@ -73,7 +73,7 @@ rule C_COMPILER__lodepng-static_
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__lodepng-static_
-  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
 
@@ -84,7 +84,7 @@ rule C_STATIC_LIBRARY_LINKER__lodepng-static_
 rule C_COMPILER__c-hashmap-static_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building C object $out
 
 
@@ -92,7 +92,7 @@ rule C_COMPILER__c-hashmap-static_
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__c-hashmap-static_
-  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
 
@@ -103,7 +103,7 @@ rule C_STATIC_LIBRARY_LINKER__c-hashmap-static_
 rule C_COMPILER__sheenbidi-static_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building C object $out
 
 
@@ -111,7 +111,7 @@ rule C_COMPILER__sheenbidi-static_
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__sheenbidi-static_
-  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
 
@@ -122,7 +122,7 @@ rule C_STATIC_LIBRARY_LINKER__sheenbidi-static_
 rule CXX_COMPILER__tinyxml2-static_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/em++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/em++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building CXX object $out
 
 
@@ -130,7 +130,7 @@ rule CXX_COMPILER__tinyxml2-static_
 # Rule for linking CXX static library.
 
 rule CXX_STATIC_LIBRARY_LINKER__tinyxml2-static_
-  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -141,7 +141,7 @@ rule CXX_STATIC_LIBRARY_LINKER__tinyxml2-static_
 rule C_COMPILER__physfs-static_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building C object $out
 
 
@@ -151,7 +151,7 @@ rule C_COMPILER__physfs-static_
 rule CXX_COMPILER__physfs-static_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/em++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/em++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building CXX object $out
 
 
@@ -159,7 +159,7 @@ rule CXX_COMPILER__physfs-static_
 # Rule for linking CXX static library.
 
 rule CXX_STATIC_LIBRARY_LINKER__physfs-static_
-  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -170,7 +170,7 @@ rule CXX_STATIC_LIBRARY_LINKER__physfs-static_
 rule C_COMPILER__faudio-static_
   depfile = $DEP_FILE
   deps = gcc
-  command = /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building C object $out
 
 
@@ -178,7 +178,7 @@ rule C_COMPILER__faudio-static_
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__faudio-static_
-  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/81d4f93c-0738-4f4c-9e8c-1ab73187e2e3/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
+  command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emar qc $TARGET_FILE $LINK_FLAGS $in && /__w/_temp/f490c979-810a-479d-bc47-9eb4605e4175/emsdk-main/upstream/emscripten/emranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
 
