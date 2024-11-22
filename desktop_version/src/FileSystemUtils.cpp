@@ -1359,7 +1359,7 @@ static int PLATFORM_getOSDirectory(char* output, const size_t output_size)
     SDL_snprintf(output, output_size, "%s/../../Documents/", prefsPath);
     return 1;
 #elif defined(__EMSCRIPTEN__)
-    SDL_strlcpy(output, "/osdir", output_size);
+    SDL_strlcpy(output, "/osdir/", output_size);
     return 1;
 #else
     const char* prefDir = PHYSFS_getPrefDir("distractionware", "VVVVVV");
