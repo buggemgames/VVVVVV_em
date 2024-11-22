@@ -1159,7 +1159,7 @@ function dbg(...args) {
 var ASM_CONSTS = {
   1470728: () => { FS.syncfs(false, function(err) { if (err) { console.warn("Error saving:", err); alert("Error saving. Check console for more information."); } }) },  
  1470873: () => { FS.syncfs(false, function(err) { if (err) { console.warn("Error saving:", err); alert("Error saving. Check console for more information."); } }) },  
- 1471018: () => { FS.mkdir('/osdir'); FS.chmod('/osdir', 0777); FS.mount(IDBFS, {}, '/osdir'); FS.syncfs(true, function (err) { }); },  
+ 1471018: () => {  },  
  1471132: ($0) => { var str = UTF8ToString($0) + '\n\n' + 'Abort/Retry/Ignore/AlwaysIgnore? [ariA] :'; var reply = window.prompt(str, "i"); if (reply === null) { reply = "i"; } return allocate(intArrayFromString(reply), 'i8', ALLOC_NORMAL); },  
  1471357: () => { if (typeof(AudioContext) !== 'undefined') { return true; } else if (typeof(webkitAudioContext) !== 'undefined') { return true; } return false; },  
  1471504: () => { if ((typeof(navigator.mediaDevices) !== 'undefined') && (typeof(navigator.mediaDevices.getUserMedia) !== 'undefined')) { return true; } else if (typeof(navigator.webkitGetUserMedia) !== 'undefined') { return true; } return false; },  
@@ -10710,6 +10710,11 @@ function callMain(args = []) {
 
   var entryFunction = _main;
 
+  FS.mkdir('/osdir'); 
+  FS.chmod('/osdir', 0777); 
+  FS.mount(IDBFS, {}, '/osdir'); 
+  FS.syncfs(true, function (err) { });
+  
   args.unshift(thisProgram);
 
   var argc = args.length;
