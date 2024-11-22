@@ -28,7 +28,7 @@ jobs:
     name: Build (Steam Linux Runtime Sniper w Emscripten)
 
     runs-on: ubuntu-latest
-    container: registry.gitlab.steamos.cloud/steamrt/sniper/sdk:beta
+    
 
     steps:
     - uses: actions/checkout@v4
