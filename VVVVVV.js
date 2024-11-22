@@ -10708,7 +10708,12 @@ function callMain(args = []) {
   assert(__ATPRERUN__.length == 0, 'cannot call main when preRun functions remain to be called');
 
   var entryFunction = _main;
-
+  
+  FS.mkdir('/home/web_user/.local/share/VVVVVV');
+  FS.chmod('/home/web_user/.local/share/VVVVVV', 777);
+  FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV');
+  FS.syncfs(true, (err)=>{ });
+  
   args.unshift(thisProgram);
 
   var argc = args.length;
