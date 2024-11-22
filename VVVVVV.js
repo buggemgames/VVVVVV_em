@@ -1157,7 +1157,7 @@ function dbg(...args) {
 // === Body ===
 
 var ASM_CONSTS = {
-  1470840: () => { FS.mkdir('/home/web_user/.local/share/VVVVVV/saves'); FS.chmod('/home/web_user/.local/share/VVVVVV/saves', 777); FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/saves'); FS.syncfs(true, function (err) { }); },  
+  1470840: () => {},  
  1471055: () => { FS.syncfs(false, function(err) { if (err) { console.warn("Error saving:", err); alert("Error saving. Check console for more information."); } }) },  
  1471200: () => { FS.syncfs(false, function(err) { if (err) { console.warn("Error saving:", err); alert("Error saving. Check console for more information."); } }) },  
  1471345: ($0) => { var str = UTF8ToString($0) + '\n\n' + 'Abort/Retry/Ignore/AlwaysIgnore? [ariA] :'; var reply = window.prompt(str, "i"); if (reply === null) { reply = "i"; } return allocate(intArrayFromString(reply), 'i8', ALLOC_NORMAL); },  
@@ -4289,7 +4289,10 @@ var ASM_CONSTS = {
         abort('FS.standardizePath has been removed; use PATH.normalize instead');
       },
   };
-  
+  FS.mkdir('/home/web_user/.local/share/VVVVVV/saves');
+  FS.chmod('/home/web_user/.local/share/VVVVVV/saves', 777);
+  FS.mount(IDBFS, {}, '/home/web_user/.local/share/VVVVVV/saves');
+  FS.syncfs(true, function (err) { });
   var SYSCALLS = {
   DEFAULT_POLLMASK:5,
   calculateAt(dirfd, path, allowEmpty) {
